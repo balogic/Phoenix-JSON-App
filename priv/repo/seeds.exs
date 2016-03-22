@@ -18,3 +18,13 @@ Repo.insert! %Player {
   playername: "MS Dhoni",
   playerteam: "India"
 }
+
+Repo.insert! %Player {
+  playername: "Chris Gayle",
+  playerteam: "WestIndies"
+}
+
+Repo.insert! %Player {
+  playername: "Gilchrist",
+  playerteam: "Australia"
+}

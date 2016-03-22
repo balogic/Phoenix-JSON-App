@@ -16,10 +16,11 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $.getJSON('/api/players', function(j) {
-          $('#name').append(j.data[0].playername);
-          $('#team').append(j.data[0].playerteam);
-        });
+          $.each(j.data, function(key, value) {
+            $('#name').append('<h3>Name: '+value.playername+'</h3>'+'<h4>Team:'+value.playerteam+'</h4>');
+          });
       });
+    });
     </script>
 
     <script type="text/babel">
@@ -29,8 +30,8 @@
             <center>
             <h1><u>Cricket Details</u></h1>
 
-            <h3 id="name">Player Name: </h3>
-            <h4 id="team">Player Team: </h4>
+            <div id="name">
+            </div>
                       </center></div>);
         }
       });
