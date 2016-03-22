@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Player JSON</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  </head>
+  <body>
+    <div id="content">
+
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.getJSON('/api/players', function(j) {
+          $('#name').append(j.data[0].playername);
+          $('#team').append(j.data[0].playerteam);
+        });
+      });
+    </script>
+
+    <script type="text/babel">
+      var Cricket = React.createClass({
+        render: function () {
+          return (<div>
+            <center>
+            <h1><u>Cricket Details</u></h1>
+
+            <h3 id="name">Player Name: </h3>
+            <h4 id="team">Player Team: </h4>
+                      </center></div>);
+        }
+      });
+
+      ReactDOM.render(<Cricket/>,document.getElementById("content"));
+    </script>
+
+  </body>
+</html>
